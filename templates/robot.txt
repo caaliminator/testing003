@@ -1,0 +1,13 @@
+# robots.txt — ArborCentric Solutions
+# https://quote.spfepoxy.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Block utility/internal pages from indexing
+Disallow: /submit-form
+Disallow: /form-error
+Disallow: /thank-you
+
+# Sitemap location
+Sitemap: https://quote.spfepoxy.com/sitemap.xml

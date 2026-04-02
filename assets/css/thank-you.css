@@ -1,0 +1,214 @@
+:root {
+    --ty-primary: #041c3b; /* Matches --primary-darkred from styles.css */
+    --ty-accent: #ee7b28;  /* Matches main button gradient start */
+}
+
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.ty-hero {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 72px 16px;
+    background: #001836;
+}
+
+.ty-hero__bg {
+    position: absolute;
+    inset: 0;
+    background: url("../images/hero-city2.webp") center/cover no-repeat;
+    transform: scale(1.02);
+    z-index: 0;
+}
+
+.ty-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, rgba(3, 12, 63, 0.92) 0%, rgba(2, 20, 60, 0.78) 45%, #001836 100%);
+    z-index: 1;
+}
+
+.ty-wrap {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ty-card {
+    text-align: center;
+    border-radius: 26px;
+    padding: 44px 34px;
+    background: rgba(4, 28, 59, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+}
+
+.ty-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 16px;
+    display: grid;
+    place-items: center;
+    border-radius: 18px;
+    background: rgba(238, 123, 40, 0.16);
+    border: 1px solid rgba(238, 123, 40, 0.35);
+}
+
+.ty-icon svg {
+    width: 38px;
+    height: 38px;
+    fill: var(--ty-accent);
+}
+
+.ty-title {
+    color: #fff;
+    font-family: "Barlow Condensed", "Montserrat", system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 44px;
+    letter-spacing: -0.8px;
+    margin: 0 0 10px;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+.ty-sub {
+    font-family: "Barlow", "Inter", system-ui, sans-serif;
+    color: rgba(255, 255, 255, 0.90);
+    max-width: 880px;
+    margin: 0 auto 24px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.ty-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.ty-btn {
+    font-family: "Barlow Condensed", "Montserrat", system-ui, sans-serif;
+    height: 52px;
+    padding: 0 26px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 0;
+    cursor: pointer;
+    transition: transform var(--ease, 0.22s cubic-bezier(.4,0,.2,1)), box-shadow var(--ease, 0.22s cubic-bezier(.4,0,.2,1));
+}
+
+.ty-btn:active {
+    transform: translateY(1px);
+}
+
+.ty-btn--primary {
+    background: linear-gradient(135deg, #ee7b28 0%, #ce6316 50%, #aa5212 100%);
+    color: #fff;
+    box-shadow: 0 8px 28px rgba(155,0,0,.32);
+}
+
+.ty-btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(155,0,0,.42);
+    filter: brightness(1.06);
+}
+
+.ty-btn--secondary {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.ty-btn--secondary:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+}
+
+.ty-call {
+    font-family: "Barlow", "Inter", system-ui, sans-serif;
+    margin-top: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.ty-call a {
+    color: var(--ty-accent);
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.ty-call a:hover,
+.ty-call a:focus,
+.split-hero__call:hover,
+.split-hero__call:focus,
+.split-hero__call a:hover,
+.split-hero__call a:focus {
+    text-decoration: underline !important;
+}
+
+.ty-foot {
+    font-family: "Barlow", "Inter", system-ui, sans-serif;
+    margin-top: 28px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ty-card {
+        padding: 34px 18px;
+        border-radius: 20px;
+    }
+
+    .ty-title {
+        font-size: 32px;
+    }
+
+    .ty-sub {
+        font-size: 15px;
+    }
+
+    .ty-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 420px) {
+    .ty-title {
+        font-size: 28px;
+    }
+
+    .ty-btn {
+        width: 100%;
+    }
+}

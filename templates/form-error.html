@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "form_error_page",
+        page_type: "form_error",
+        error_page: true,
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oops! Something Went Wrong | SPF Industrial</title>
+
+    <link href="assets/images/favicon.webp" rel="icon" />
+    <link href="assets/images/apple-touch-icon.webp" rel="apple-touch-icon" />
+
+    <!-- Fonts (match landing) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+
+    <!-- NEW page css -->
+    <link rel="stylesheet" href="assets/css/form-error.css" />
+  </head>
+
+  <body>
+    <main class="fe-hero">
+      <div class="fe-hero__bg" aria-hidden="true"></div>
+      <div class="fe-hero__overlay" aria-hidden="true"></div>
+
+      <div class="fe-wrap">
+        <div class="fe-card">
+          <div class="fe-icon" aria-hidden="true">
+            <!-- envelope + exclamation icon -->
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Zm-8 3.5a1 1 0 0 1 1 1V16a1 1 0 1 1-2 0v-2.5a1 1 0 0 1 1-1Zm0 6a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"
+              />
+            </svg>
+          </div>
+
+          <h1 class="fe-title">Oops! Something Went Wrong</h1>
+
+          <p class="fe-sub">
+            Sorry, something went wrong while sending your message. Please try
+            again later or contact us directly for immediate assistance.
+          </p>
+
+          <div class="fe-actions">
+            <button
+              class="fe-btn fe-btn--primary"
+              type="button"
+              onclick="window.location.replace('/')"
+            >
+              Back to Home
+            </button>
+          </div>
+
+          <div class="fe-call">
+            Or call us directly at <a href="tel:+12393579773">(239) 357-9773</a>
+          </div>
+
+          <div class="fe-foot">
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            © SPF Industrial. All Rights
+            Reserved.
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ✅ Track phone clicks on error page -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Track phone clicks
+        document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+          link.addEventListener("click", function () {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: "phone_click",
+              phoneNumber: link.href.replace("tel:", ""),
+              clickLocation: "error_page",
+              pageType: "form_error",
+            });
+          });
+        });
+
+        // Track "Back to Home" button clicks
+        var backButton = document.querySelector(".fe-btn--primary");
+        if (backButton) {
+          backButton.addEventListener("click", function () {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: "error_page_exit",
+              exitAction: "back_to_home",
+              pageType: "form_error",
+            });
+          });
+        }
+      });
+    </script>
+
+    <!-- CallRail -->
+    <!-- <script
+      type="text/javascript"
+      src="https://cdn.callrail.com/companies/422799458/c445b8d648055605a4f5/12/swap.js"
+    ></script> -->
+  </body>
+</html>
